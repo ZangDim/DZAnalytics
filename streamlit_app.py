@@ -3,6 +3,13 @@ import streamlit as st
 from time import sleep
 from navigation import make_sidebar
 
+# Set custom page configuration
+st.set_page_config(
+    page_title="Sakila Anlytics",  # Custom window title
+    page_icon="🎬",  # Optional: Set a custom icon (emoji or image URL)
+    layout="centered"  # Optional: Choose between "centered" or "wide" layout
+)
+
 make_sidebar()
 
 # Function to retrieve stored hashed password for a given username
@@ -17,7 +24,7 @@ def get_stored_password_hash(username):
 # Streamlit app logic for the login page
 st.title("Salika Analytics - Login Page 🔒")
 
-st.write("Please log 132 in to continue (username `admin`, password `admin`).")
+st.write("Please log in to continue (username `admin`, password `admin`).")
 
 username = st.text_input("Username")
 password = st.text_input("Password", type="password")
