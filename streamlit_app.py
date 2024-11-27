@@ -17,7 +17,7 @@ def get_stored_password_hash(username):
 # Streamlit app logic for the login page
 st.title("Salika Analytics - Login Page 🔒")
 
-st.write("Please log in to continue (username `admin`, password `admin`).")
+st.write("Please log 132 in to continue (username `admin`, password `admin`).")
 
 username = st.text_input("Username")
 password = st.text_input("Password", type="password")
