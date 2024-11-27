@@ -5,7 +5,7 @@ from navigation import make_sidebar
 
 # Set custom page configuration
 st.set_page_config(
-    page_title="Sakila Anlytics",  # Custom window title
+    page_title="Sakila Analytics",  # Custom window title
     page_icon="🎬",  # Optional: Set a custom icon (emoji or image URL)
     layout="centered"  # Optional: Choose between "centered" or "wide" layout
 )
