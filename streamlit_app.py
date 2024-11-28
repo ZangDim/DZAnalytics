@@ -22,7 +22,7 @@ def get_stored_password_hash(username):
     return None  # Return None if the username does not exist
 
 # Streamlit app logic for the login page
-st.title("Salika Analytics - Login Page 🔒")
+st.title("Sakila Analytics - Login Page 🔒")
 
 st.write("Please log in to continue (username `admin`, password `admin`).")
 
