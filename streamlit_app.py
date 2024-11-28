@@ -24,7 +24,7 @@ def get_stored_password_hash(username):
 # Streamlit app logic for the login page
 st.title("Sakila Analytics - Login Page 🔒")
 
-st.write("This app was created as a demonstration and is part of Dimitris Zanganas's portfolio.")
+st.write("This app was created as a demonstration and is part of `Dimitris Zanganas's` portfolio.")
 st.write("Please log in to continue (username `admin`, password `admin`).")
 
 username = st.text_input("Username")
