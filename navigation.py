@@ -16,8 +16,8 @@ def get_current_page_name():
 def make_sidebar():
     with st.sidebar:
 
-        st.set_page_config(page_icon="img/Sakila_Analytics_logo.webp", layout = "wide")
-        st.image("img/Sakila_Analytics_logo.webp", width=200)
+        st.set_page_config(page_icon="img/Sakila_Analytics_logo.png", layout = "wide")
+        st.image("img/Sakila_Analytics_logo.png", width=200)
 
         st.write("")
         st.write("")
