@@ -13,10 +13,12 @@ def get_current_page_name():
 
     return pages[ctx.page_script_hash]["page_name"]
 
-
 def make_sidebar():
     with st.sidebar:
-        st.title("📊 Sakila Analytics")
+
+        st.set_page_config(page_icon="\.ico\Sakila_Analytics_logo.webp", layout = "wide")
+        st.image(".\img\Sakila_Analytics_logo.webp", width=200)
+
         st.write("")
         st.write("")
 

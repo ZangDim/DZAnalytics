@@ -10,6 +10,10 @@ else:
     st.error("You need to log in first.")
     st.stop()  # Stop the execution of the page if not logged in
 
+st.markdown(f"""
+    <link rel="icon" href=".\img\Sakila_Analytics_logo.webp" type="image/x-icon">
+""", unsafe_allow_html=True)
+
 # Welcome message with the username
 st.markdown(f"<h1>Welcome to Sakila Analytics app, <span style='color:orange'>{username}</span>!</h1>", unsafe_allow_html=True)
 

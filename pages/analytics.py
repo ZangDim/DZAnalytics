@@ -87,3 +87,5 @@ category_revenue = run_query("""
 """)
 st.table(category_revenue)
 
+
+
