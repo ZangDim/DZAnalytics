@@ -1,8 +1,10 @@
 # Sakila Analytics
-Sakila Analytics is an app designed to analyze the Sakila Database and extract datasets from it. It also supports the execution of trained machine learning (ML) models, enabling advanced data analysis and generating valuable insights.
+Sakila Analytics is a web application designed to analyze the Sakila Database, extract datasets, and execute trained machine learning (ML) models. It enables advanced data analysis and provides valuable insights.
 
 # Deployment
-Sakila Analytics is deployed on the Streamlit Community Cloud, making it accessible for users to interact with the application directly from their browsers without any local setup.
+Sakila Analytics is hosted on the Streamlit Community Cloud, allowing users to interact with the application directly from their browsers without any local setup.
 
-# LINK
-You can use Sakila Analytics on https://sakilaanalytics.streamlit.app/
+# Access
+Try Sakila Analytics at: https://sakilaanalytics.streamlit.app/
+
+Note: If the app has been inactive for some time, it may take a few seconds to restart. Please be patient while it loads.
