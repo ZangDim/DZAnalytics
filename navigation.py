@@ -24,8 +24,9 @@ def make_sidebar():
 
         if st.session_state.get("logged_in", False):
             st.page_link("pages/home.py", label="Home", icon="🏡")
-            st.page_link("pages/analytics.py", label="Analysis", icon="📈")
-            st.page_link("pages/database.py", label="Database Viewer", icon="🛢")
+            st.page_link("pages/analytics.py", label="Sakila db Analysis", icon="📈")
+            st.page_link("pages/database.py", label="Sakila db Viewer ", icon="🛢")
+            st.page_link("pages/XGBoost_model.py", label= "Energy Cons. Model", icon="🎯")
 
             if st.button("Log out"):
                 logout()

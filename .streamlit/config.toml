@@ -2,9 +2,8 @@
 showSidebarNavigation = false
 
 [theme]
-base="dark"
-primaryColor="#1DB954"  # Customize the primary color
-backgroundColor="#121212"
-secondaryBackgroundColor="#1A1A1A"
-textColor="#FFFFFF"
-font="sans serif"
+primaryColor="#1db954"
+backgroundColor="#1c5da8"
+secondaryBackgroundColor="#d85224"
+textColor="#ffffff"
+font="monospace"
