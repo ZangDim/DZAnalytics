@@ -298,10 +298,10 @@ class Tuner:
     def tune_xgboost(self, n_trials):
         def objective(trial):
             params = {
-                'n_estimators': trial.suggest_int('n_estimators', 100, 1000),  # Reduced range
-                'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.2),  # Narrower range
-                'max_depth': trial.suggest_int('max_depth', 3, 10),
-                'early_stopping_rounds': trial.suggest_int('early_stopping_rounds', 10, 30)
+                'n_estimators': trial.suggest_int('n_estimators', 50, 100),  # Reduced range
+                'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.15),  # Narrower range
+                'max_depth': trial.suggest_int('max_depth', 3, 8),
+                'early_stopping_rounds': trial.suggest_int('early_stopping_rounds', 10, 25)
             }
             model = XGBoostModel(**params)
             model.train(self.X_train_scaled, self.y_train_scaled, self.X_val_scaled, self.y_val_scaled)
