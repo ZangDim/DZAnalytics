@@ -7,4 +7,9 @@ Sakila Analytics is hosted on the Streamlit Community Cloud, allowing users to i
 ### Access
 Try DZAnalytics at: https://dzanalytics.streamlit.app/
 
-Note: If the app has been inactive for some time, it may take a few seconds to restart. Please be patient while it loads.
+### Notes
+# Note 1
+If the app has been inactive for some time, it may take a few seconds to restart. Please be patient while it loads.
+
+# Note 2
+The tuner’s parameters have been simplified for faster execution, so results may not reflect full accuracy.
