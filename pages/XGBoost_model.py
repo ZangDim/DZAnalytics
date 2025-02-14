@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as go
+import plotly.express as px
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error, r2_score
 from navigation import make_sidebar
@@ -172,25 +174,59 @@ if data is not None:
 
         st.write("### Analysis")
 
-        fig1, ax1 = plt.subplots(figsize=(10, 6))
-        ax1.plot(y_pred, label="Predictions", linewidth=3, color='red')
-        ax1.plot(y_test, label="True Values", linewidth=3, color='green')
-        ax1.set_xlabel('Instances', fontsize=15)
-        ax1.set_ylabel('Mean daily consumption [kWh]', fontsize=15)
-        ax1.set_title('Mean daily consumption for each instance', fontsize=17)
-        ax1.legend()
-        st.pyplot(fig1)
+        # Ensure valid, non-NaN, finite data
+        y_test = y_test[np.isfinite(y_test)]
+        y_pred = y_pred[np.isfinite(y_pred)]
 
-        fig2, ax2 = plt.subplots(figsize=(10, 6))
-        ax2.scatter(y_test, y_pred, alpha=0.6,label='Predictions vs Actual')
-        ax2.plot([y_test.min(), y_test.max()], 
-                [y_test.min(), y_test.max()], 
-                color='r', linestyle='--', label='y = x')
-        ax2.set_xlabel('Actual Values [kWh]', fontsize=15)
-        ax2.set_ylabel('Predicted Values [kWh]', fontsize=15)
-        ax2.set_title('Scatter Plot: Predictions vs Actual with y = x Line', fontsize=17)
-        ax2.legend()
-        st.pyplot(fig2)
+        # First Plot: Line plot for Predictions vs. True Values
+        fig1 = go.Figure()
+        fig1.add_trace(go.Scatter(x=list(range(len(y_pred))), y=y_pred, 
+                                mode='lines', name='Predictions', 
+                                line=dict(color='red', width=3)))
+        fig1.add_trace(go.Scatter(x=list(range(len(y_test))), y=y_test, 
+                                mode='lines', name='True Values', 
+                                line=dict(color='green', width=3)))  # Ensure green line is visible
 
+        fig1.update_layout(
+            title='Mean daily consumption for each instance',
+            xaxis_title='Instances',
+            yaxis_title='Mean daily consumption [kWh]',
+            legend_title='Legend',
+            font=dict(size=15)
+        )
+
+        # Display the figure in Streamlit
+        st.plotly_chart(fig1)
+
+        # Second Plot: Scatter plot with y = x line
+        fig2 = go.Figure()
+
+        # Scatter plot for Predictions vs Actual with increased marker size and full opacity
+        fig2.add_trace(go.Scatter(x=y_test, y=y_pred, 
+                                mode='markers', 
+                                name='Predictions vs Actual', 
+                                opacity=1, 
+                                marker=dict(size=8)))  # Increased marker size for visibility
+
+        # Line for y = x (ensures the line spans the full range of the data)
+        fig2.add_trace(go.Scatter(x=[min(y_test), max(y_test)], 
+                                y=[min(y_test), max(y_test)], 
+                                mode='lines', 
+                                name='y = x', 
+                                line=dict(color='red', dash='dash')))
+
+        # Ensure axis ranges are appropriate for better visibility
+        fig2.update_xaxes(range=[0, max(y_test.max(), y_pred.max())])
+        fig2.update_yaxes(range=[0, max(y_test.max(), y_pred.max())])
+
+        fig2.update_layout(
+            title='Scatter Plot: Predictions vs Actual with y = x Line',
+            xaxis_title='Actual Values [kWh]',
+            yaxis_title='Predicted Values [kWh]',
+            legend_title='Legend',
+            font=dict(size=15)
+        )
+        # Display the figure in Streamlit
+        st.plotly_chart(fig2)
     else:
         st.write("Click 'Tune & Train Model' to start tuning and training.")
