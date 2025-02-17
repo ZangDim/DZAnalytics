@@ -353,31 +353,13 @@ if st.button("Tune & Train Model"):
     X_train, X_temp, y_train, y_temp = train_test_split(X, y, train_size=train_size, random_state=42)
     X_test, X_val, y_test, y_val = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-    # Step 2: Display loading animation
-    placeholder = st.empty()
-    for _ in range(5):  # Animation loop for a few seconds
-        placeholder.write("Tuning parameters.")
-        time.sleep(0.5)
-        placeholder.write("Tuning parameters..")
-        time.sleep(0.5)
-        placeholder.write("Tuning parameters...")
-        time.sleep(0.5)
-
-    # Step 3: Tune the model
-    # placeholder.write("Tuning in progress...")  # Final status message
+    st.write("Tuning parameters...")
     tuner = Tuner(X_train, y_train, X_val, y_val, 'XGBoostRegressor')
     best_params = tuner.tune(n_trials=50)  # Reduced trials for faster tuning
+
     st.write("### Best Parameters:")
     st.json(best_params)
-
-    placeholder = st.empty()
-    for _ in range(5):  # Animation loop for a few seconds
-        placeholder.write("Training XGBoost model. Please wait a few seconds.")
-        time.sleep(0.5)
-        placeholder.write("Training XGBoost model. Please wait a few seconds..")
-        time.sleep(0.5)
-        placeholder.write("Training XGBoost model. Please wait a few seconds...")
-        time.sleep(0.5)
+    st.write("Training XGBoost model. Please wait a few seconds...")
 
     best_model = XGBoostModel(**best_params)
     best_model.train(X_train, y_train, X_val, y_val)
