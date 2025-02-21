@@ -48,9 +48,7 @@ Take your data science skills to the next level by training and fine-tuning an X
 #     """
 # )
 
-
-
-# st.write("# About the Sakila Database! 🎦")
+# st.write("About the Sakila Database! 🎦")
 
 # st.markdown(
 #     '''
