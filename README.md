@@ -40,4 +40,4 @@ This section helps you to quickly train, tune, and evaluate a model on your data
 
 - **App Startup**: If the app has been inactive for some time, it may take a few seconds to restart. Please be patient as it loads.
   
-Thank you for using **DZAnalytics**! 🚀
+Thank you for using **DZAnalytics**!! 🚀
